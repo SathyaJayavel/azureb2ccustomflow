@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
 app.get('/users', (req, res) => {
   res.send(json);
-})
+});
 
 app.post('/users', (req, res) => {
   console.log(JSON.stringify(req.query)+"========"+JSON.stringify(req.body)+"========"+JSON.stringify(req.formData));
