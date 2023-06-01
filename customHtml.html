@@ -11,12 +11,14 @@
     <script>
         async function postForm(){
             const q001 = document.getElementById("q001").value;
+            console.log("++++++++++++",q001)
             const response = await fetch('https://gentle-pocket.cyclic.app/users', {
                     method: 'post',
                     body: {
                         "data": q001
                     }
                 });
+            console.log("___________",response);
         }
     </script>
     <div id="api"></div>
