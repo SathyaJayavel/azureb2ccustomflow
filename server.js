@@ -10,7 +10,8 @@ app.get('/users', (req, res) => {
 })
 
 app.post('/users', (req, res) => {
-  console.log(req);
+  console.log(JSON.stringify(req));
+  res.send("Completed").status(200);
 })
 
 app.listen(port, () => {
