@@ -5,7 +5,7 @@ const json = require('./sampleJson.json')
 const cors = require('cors')
 
 app.use(cors())
-app.get('/user', (req, res) => {
+app.get('/users', (req, res) => {
   res.send(json);
 })
 
