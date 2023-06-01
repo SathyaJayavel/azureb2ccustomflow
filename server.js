@@ -3,6 +3,11 @@ const app = express();
 const port = process.env.port || 3000;
 const json = require('./sampleJson.json')
 const cors = require('cors')
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+// in latest body-parser use like below.
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors())
 app.get('/users', (req, res) => {
@@ -10,7 +15,7 @@ app.get('/users', (req, res) => {
 })
 
 app.post('/users', (req, res) => {
-  console.log(JSON.stringify(req.query.q001)+"========"+JSON.stringify(req.body.q001)+"========"+JSON.stringify(req.formData));
+  console.log(JSON.stringify(req.query)+"========"+JSON.stringify(req.body)+"========"+JSON.stringify(req.formData));
   res.send("Completed").status(200);
 })
 
