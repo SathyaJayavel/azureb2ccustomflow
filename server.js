@@ -10,7 +10,7 @@ app.get('/users', (req, res) => {
 })
 
 app.post('/users', (req, res) => {
-  console.log(JSON.stringify(req.params)+"========"+JSON.stringify(req.body));
+  console.log(JSON.stringify(req.params)+"========"+JSON.stringify(req.body)+"========"+JSON.stringify(req.formData));
   res.send("Completed").status(200);
 })
 
