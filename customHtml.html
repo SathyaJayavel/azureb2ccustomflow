@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <form>
+
+    </form>
+    <script>
+        const url = 'http://localhost:3000/'
+        async function getForm() {
+            fetch(url).then(result => {
+                return result.json()
+            }).then(data => {
+                let markup = ``;
+                data.questions.forEach(ques => {
+                    if (ques.answerType === 'dropDown') {
+                        let optionMarkup = ques.hasDefault ? `<option value="value" selected>${ques.defaultValue}</option>` : ``;
+                        if (ques.options && ques.options.length > 0) {
+                            ques.options.forEach(option => {
+                                optionMarkup += `<option value="${option}">${option}</option>`
+                            })
+                        }
+                        markup += `<label for="${ques.id}">${ques.question}</label>
+                        <select id="${ques.id}" name="${ques.id}">
+                           ${optionMarkup}
+                        </select><br>`;
+                    }
+                });
+                document.querySelector('form').insertAdjacentHTML('beforeend', markup);
+            }
+            )
+        }
+        getForm();
+    </script>
+<div id="api"></div>
+</body>
+
+</html>

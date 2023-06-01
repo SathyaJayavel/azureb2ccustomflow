@@ -1,0 +1,20 @@
+{
+  "questions": [
+    {
+      "id":"q001",
+      "question": "Are you interested in becoming an educator?",
+      "answerType": "dropDown",
+      "hasDefault": "true",
+      "defaultValue": "Please provide yes or no",
+      "options": ["yes","no"]
+    },
+    {
+      "id":"q002",
+      "question": "Which school district do you live in?",
+      "answerType": "dropDown",
+      "hasDefault": "true",
+      "defaultValue": "None",
+      "options": ["1st district","2nd district"]
+    }
+  ]
+}
