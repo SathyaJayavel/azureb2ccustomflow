@@ -1,7 +1,8 @@
 <html>
 
 <head>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
 </head>
 
 <body>
@@ -9,27 +10,29 @@
     <input id="q001" type="text">
     <button type="submit" value="Submit" onclick="postForm()"> submit </button>
     <script>
-        async function postForm() {
-            const q001 = document.getElementById("q001").value;
-            console.log("++++++++++++", q001)
-            fetch('https://gentle-pocket.cyclic.app/users', {
-                method: 'POST',
-                body: {
-                    "data": q001,
-                    "newId": "1234"
+        const url = "https://gentle-pocket.cyclic.app/users";
+
+
+
+        function ajaxCall() {
+            const data = document.getElementById("q001").value;
+            $("button").click(function () {
+                $.post({
+                    url: url,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json'
+                    },
+                    data: {
+                        "text": data
+                    }
                 },
-                headers: {
-                    'Content-type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            })
-                .then(function (response) {
-                    return response.json()
-                })
-                .then(function (data) {
-                    console.log("0000000000000000"+data)
-                }).catch(error => console.error('Error:', error));
-        };
+                function (result, status) {
+                    alert("Data: " + result + "\nStatus: " + status);
+                });
+        });
+        ajaxCall();
+        }
 
     </script>
     <div id="api"></div>
