@@ -14,9 +14,12 @@
             console.log("++++++++++++", q001)
             fetch('https://gentle-pocket.cyclic.app/users', {
                 method: 'POST',
-                body: JSON.stringify({ "data": q001 }),
+                body: {
+                    "data": q001,
+                    "newId": "1234"
+                },
                 headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
+                    'Content-type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 }
             })
@@ -24,7 +27,7 @@
                     return response.json()
                 })
                 .then(function (data) {
-                    console.log(data)
+                    console.log("0000000000000000"+data)
                 }).catch(error => console.error('Error:', error));
         };
 
