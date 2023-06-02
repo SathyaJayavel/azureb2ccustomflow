@@ -8,7 +8,7 @@
 <body>
     <p> Enter yes or no</p>
     <input id="q001" type="text">
-    <button type="submit" value="Submit" onclick="postForm()"> submit </button>
+    <button type="submit" value="Submit" onclick="ajaxCall()"> submit </button>
     <script>
         const url = "https://gentle-pocket.cyclic.app/users";
 
@@ -27,11 +27,10 @@
                         "text": data
                     }
                 },
-                function (result, status) {
-                    alert("Data: " + result + "\nStatus: " + status);
-                });
-        });
-        ajaxCall();
+                    function (result, status) {
+                        alert("Data: " + result + "\nStatus: " + status);
+                    });
+            });
         }
 
     </script>
