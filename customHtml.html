@@ -16,21 +16,21 @@
 
         function ajaxCall() {
             const data = document.getElementById("q001").value;
-            $("button").click(function () {
-                $.post({
-                    url: url,
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'application/json'
-                    },
-                    data: {
-                        "text": data
-                    }
+
+            $.post({
+                url: url,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json'
                 },
-                    function (result, status) {
-                        alert("Data: " + result + "\nStatus: " + status);
-                    });
-            });
+                data: {
+                    "text": data
+                }
+            },
+                function (result, status) {
+                    alert("Data: " + result + "\nStatus: " + status);
+                });
+
         }
 
     </script>
