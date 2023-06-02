@@ -15,7 +15,7 @@ app.get('/users', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  console.log(JSON.parse(req));
+  console.log(req);
   res.send("Completed").status(200);
 })
 
